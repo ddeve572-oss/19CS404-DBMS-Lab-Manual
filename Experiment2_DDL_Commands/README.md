@@ -127,111 +127,203 @@ RollNo      Name        Gender      Subject     MARKS
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should set NULL on updates and deletes.
+item_desc and rate should not accept NULL.
 
 ```sql
--- Paste your SQL code below for Question 2
+-- create table item(
+item_id text primary key,
+item_desc text not null,
+rate integer,
+icom_id text varchar(4),
+foreign key(icom_id) references
+company(com_id)
+on update set null
+on delete set null);
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1235" height="440" alt="image" src="https://github.com/user-attachments/assets/67262d5a-26c4-4d43-a0b9-13dbf43978c8" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- In the Cusomers table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
+
+CustomerID  Name          Address      City        ZipCode
+----------  ------------  ----------   ----------  ----------
+306         Diana Prince  Themyscira
+307         Bruce Wayne   Wayne Manor  Gotham      10007
+308         Peter Parker  Queens                   11375
 
 ```sql
--- Paste your SQL code below for Question 3
+-- insert into Customers(
+CustomerID, Name,Address,City,ZipCode)values(306,'Diana Prince','Themyscira',null,null),
+(307,'Bruce Wayne','Wayne Mano','Gotham',10007),
+(308,'Peter Parker','Queens',null,11375);
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1278" height="330" alt="image" src="https://github.com/user-attachments/assets/ca2afcb3-24c0-41df-a5cc-acaec80843ff" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Write a SQL query to add a new column MobileNumber of type NUMBER and a new column Address of type VARCHAR(100) to the Student_details table.
+
+For example:
+
+Test	Result
+pragma table_info('Student_details');
+cid    name             type             notnu  dflt_value  pk
+-----  ---------------  ---------------  -----  ----------  ----------
+0      RollNo           int              0                  1
+1      Name             VARCHAR(100)     1                  0
+2      Gender           TEXT             1                  0
+3      Subject          VARCHAR(30)      0                  0
+4      MARKS            INT (3)          0                  0
+5      MobileNumber     NUMBER           0                  0
+6      Address          VARCHAR(100)     0                  0
+
 
 ```sql
--- Paste your SQL code below for Question 4
+--alter table Student_details
+add column MobileNumber NUMBER;
+alter table Student_details 
+add column Address VARCHAR(100);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1226" height="412" alt="image" src="https://github.com/user-attachments/assets/34bd7cca-b167-412a-89c2-255d0bf21105" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+-- Create a table named Orders with the following constraints:
+OrderID as INTEGER should be the primary key.
+OrderDate as DATE should be not NULL.
+CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
 
 ```sql
--- Paste your SQL code below for Question 5
+-- create table Orders(
+OrderID integer primary key,
+OrderDate date not null,
+CustomerID integer,
+foreign key(CustomerID)references Customers(CustomerID));
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1225" height="342" alt="image" src="https://github.com/user-attachments/assets/6f144b8b-a7db-4f6b-896a-39413baec2d3" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Create a table named Products with the following constraints:
+
+ProductID should be the primary key.
+ProductName should be NOT NULL.
+Price is of real datatype and should be greater than 0.
+Stock is of integer datatype and should be greater than or equal to 0.
 
 ```sql
--- Paste your SQL code below for Question 6
+-- create table Products(
+ProductID primary key,
+ProductName not null,
+Price real check (Price>0),
+Stock integer check(Stock>=0));
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1297" height="311" alt="image" src="https://github.com/user-attachments/assets/ba1245f8-c032-4e70-9d3f-ed6c4338a90b" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Write a SQL Query  to add attribute ISBN as varchar(30) and domain_dept as varchar(30) in the table 'books'
 
 ```sql
--- Paste your SQL code below for Question 7
+-- alter table books add column ISBN varchar(30);
+alter table books add column domain_dept varchar(30);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1215" height="455" alt="image" src="https://github.com/user-attachments/assets/370cfa5f-19a9-4d6b-9d69-fab5797a89c1" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+--Create a table named Customers with the following columns:
+
+CustomerID as INTEGER
+Name as TEXT
+Email as TEXT
+JoinDate as DATETIME
 
 ```sql
--- Paste your SQL code below for Question 8
+-- create table Customers(
+CustomerID  INTEGER,
+Name TEXT,
+Email TEXT,
+JoinDate DATETIME);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1231" height="442" alt="image" src="https://github.com/user-attachments/assets/c22a6158-b531-4688-9e5a-c240998cead0" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Create a new table named contacts with the following specifications:
+contact_id as INTEGER and primary key.
+first_name as TEXT and not NULL.
+last_name as TEXT and not NULL.
+email as TEXT.
+phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
 
 ```sql
--- Paste your SQL code below for Question 9
+-- create table contacts(
+contact_id  INTEGER  primary key,
+first_name  TEXT  not NULL,
+last_name  TEXT  not NULL,
+email  TEXT,
+phone text not null check(length(phone)>=10));
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1227" height="373" alt="image" src="https://github.com/user-attachments/assets/40301384-01a3-4648-8747-9829298c17fc" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+--Insert all products from Discontinued_products into Products.
+
+Table attributes are ProductID, ProductName, Price, Stock
 
 ```sql
--- Paste your SQL code below for Question 10
+--insert into Products (
+ProductID,ProductName,Price,Stock)
+select ProductID,ProductName,Price,Stock
+from Discontinued_products ;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1277" height="341" alt="image" src="https://github.com/user-attachments/assets/1eecbd18-3eab-46c8-af1b-6d95523b49e0" />
+
 
 
 ## RESULT
