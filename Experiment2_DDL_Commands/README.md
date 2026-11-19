@@ -105,15 +105,25 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+-- Insert a student with RollNo 201, Name David Lee, Gender M, Subject Physics, and MARKS 92 into the Student_details table.
+
+For example:
+
+Test	Result
+SELECT * FROM Student_details WHERE RollNo = 201;
+RollNo      Name        Gender      Subject     MARKS
+----------  ----------  ----------  ----------  ----------
+201         David Lee   M           Physics     92
+
 
 ```sql
--- Paste your SQL code below for Question 1
+-- insert into student_details('RollNo','Name','Gender','Subject','MARKS')values('201','David Lee','M','Physics',92);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1195" height="332" alt="image" src="https://github.com/user-attachments/assets/32f8ab11-08ae-4957-9b62-caa47ff38a05" />
+
 
 **Question 2**
 ---
